@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package morse_3_javafxintro;
 
 import javafx.scene.canvas.Canvas;
@@ -35,13 +30,10 @@ public class Morse_3_JavaFxIntro extends Application {
         Group root = new Group();
         Canvas canvas = new Canvas(1000, 800);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-       drawRectangle(gc);
-    Image image = new Image("Gradient.png");
-    ImageView iv1 = new ImageView();
-        iv1.setImage(image);
+      methodCaller(gc);
+    
         
-        drawSomething(gc);
-       drawSomeCircle(gc);
+        
 
       
  
@@ -51,18 +43,26 @@ public class Morse_3_JavaFxIntro extends Application {
   
      }
 
-
+private void methodCaller(GraphicsContext gc){
+    
+    drawRectangle(gc);
+    
+    drawSomething(gc);
+    drawSomeCircle(gc);
+    drawGradient(gc);
+}
 
   
-      private void drawSomething(GraphicsContext gc) {
+      
+     private void drawSomething(GraphicsContext gc) {
          System.out.println("How many squares?");
           Scanner scan = new Scanner(System.in);
          int s = scan.nextInt();
           for(int i = 0; i < s; i++){
          Random generator1 = new Random();
          Random generator2 = new Random();
-         int r = generator1.nextInt(650);
-         int rr = generator2.nextInt(450);
+         int r = generator1.nextInt(700);
+         int rr = generator2.nextInt(400);
          gc.setStroke(Color.web("white", 0.4));
          
           
@@ -76,8 +76,8 @@ public class Morse_3_JavaFxIntro extends Application {
           for(int i = 0; i < s; i++){
          Random generator1 = new Random();
          Random generator2 = new Random();
-         int r = generator1.nextInt(650);
-         int rr = generator2.nextInt(450);
+         int r = generator1.nextInt(970);
+         int rr = generator2.nextInt(770);
          gc.setStroke(Color.web("white", 0.4));
          
           
@@ -89,11 +89,10 @@ private void drawRectangle(GraphicsContext gc) {
           
         
         }
-private void drawGradient() {
+private void drawGradient(GraphicsContext gc) {
          
-    Image image = new Image("flower.png");
-    ImageView iv1 = new ImageView();
-         iv1.setImage(image);
+    Image image = new Image("Gradient.png");
+    gc.drawImage(image, 0, 0);
     
    
         
